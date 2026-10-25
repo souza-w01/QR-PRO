@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador de QR Code</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<header>
+<h1>📱 Gerador de QR Code</h1>
+<p>Gere QRs para qualquer link externo</p>
+</header>
+
+<section class="card">
+<h2>Criar novo QR</h2>
+<form id="formQr">
+<input type="hidden" id="idEdicao">
+<div class="campo">
+<label>Nome</label>
+<input type="text" id="nome" placeholder="Ex: WhatsApp" required>
+</div>
+<div class="campo">
+<label>Link</label>
+<input type="url" id="link" placeholder="https://wa.me/5511999999999?text=Ol%C3%A1" required>
+<small>Exemplo WhatsApp: https://wa.me/5511999999999?text=Ol%C3%A1</small>
+</div>
+<div class="campo">
+<label>Cor do QR</label>
+<input type="color" id="cor" value="#000000">
+</div>
+<div class="campo">
+<label>Cor de fundo</label>
+<input type="color" id="fundo" value="#ffffff">
+</div>
+<div class="botoes">
+<button type="submit" class="btn-salvar">Salvar</button>
+<button type="button" class="btn-cancelar" id="btnCancelar" style="display:none">Cancelar</button>
+</div>
+</form>
+</section>
+
+<section class="card">
+<div class="cabecalho-lista">
+<h2>Meus QRs (<span id="total">0</span>)</h2>
+<div class="acoes-lista">
+<button class="btn-exportar">Exportar</button>
+<button class="btn-importar">Importar</button>
+<input type="file" id="arquivoImportar" accept=".json" style="display:none">
+<button class="btn-limpar">Limpar tudo</button>
+</div>
+</div>
+<div class="grid" id="grid"></div>
+<div id="vazio" style="display:none;text-align:center;color:#666;padding:40px">Nenhum QR ainda.</div>
+</section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
